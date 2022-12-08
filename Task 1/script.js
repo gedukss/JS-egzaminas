@@ -8,3 +8,17 @@ pamatyti jo pateikto svorio kovertavimą į:
 Pastaba: rezultatas turi būti matomas pateikus formą ir atvaizduojamas
 <div id="output"></div> viduje. Gautus atsakymus stilizuokite naudojant CSS;
 ------------------------------------------------------------------- */
+const form = document.querySelector("form");
+const searchInput = document.querySelector("#search");
+const output = document.querySelector("#output");
+
+form.addEventListener("submit", e =>{
+    e.preventDefault();
+    const kilo =searchInput.value;
+    if (kilo) {
+        output.innerHTML = `<div id="weight">Svarai: <div id="value">${(kilo * 2.2046).toFixed(2)}</div>`;
+        output.innerHTML += `<div id="weight">Uncijos: <div id="value">${(kilo * 35.274).toFixed(2)}</div></div>`;
+        output.innerHTML += `<div id="weight">Gramai: <div id="value">${(kilo * 1000).toFixed(2)}</div></div>`;
+        
+    }
+});
